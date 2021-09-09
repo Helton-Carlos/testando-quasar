@@ -12,14 +12,9 @@
         />
         <q-toolbar-title> DashBoard </q-toolbar-title>
         <div>
-          <q-avatar size="27px" color="teal">
+          <q-avatar size="27px" color="teal" class="espacos">
             <img src="https://cdn.quasar.dev/img/avatar.png" />
           </q-avatar>
-        </div>
-        <div>
-        <q-btn round icon="notifications">
-          <q-badge floating color="red" rounded />
-        </q-btn>
         </div>
       </q-toolbar>
     </q-header>

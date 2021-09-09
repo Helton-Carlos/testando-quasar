@@ -1,116 +1,66 @@
 <template>
   <q-page class="flex flex-center">
     <div class="q-px-lg q-pb-md">
-      <q-timeline color="secondary">
-        <q-timeline-entry heading> MENU </q-timeline-entry>
-
-        <q-timeline-entry title="Event Title" subtitle="February 22, 1986">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+      <q-card class="my-card">
+        <q-img src="https://placeimg.com/500/300/nature">
+          <div class="absolute-bottom">
+            <div class="text-h6">Crie Seu Login</div>
+            <div class="text-subtitle2">Gratuito</div>
           </div>
-        </q-timeline-entry>
+        </q-img>
 
-        <q-timeline-entry
-          title="Event Title"
-          subtitle="February 21, 1986"
-          icon="delete"
-        >
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </q-timeline-entry>
-
-        <q-timeline-entry heading> November, 2017 </q-timeline-entry>
-
-        <q-timeline-entry
-          title="Event Title"
-          subtitle="February 22, 1986"
-          avatar="https://cdn.quasar.dev/img/avatar2.jpg"
-        >
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </q-timeline-entry>
-
-        <q-timeline-entry title="Event Title" subtitle="February 22, 1986">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </q-timeline-entry>
-
-        <q-timeline-entry
-          title="Event Title"
-          subtitle="February 22, 1986"
-          color="orange"
-          icon="done_all"
-        >
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </q-timeline-entry>
-
-        <q-timeline-entry title="Event Title" subtitle="February 22, 1986">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </q-timeline-entry>
-
-        <q-timeline-entry title="Event Title" subtitle="February 22, 1986">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </q-timeline-entry>
-      </q-timeline>
+        <q-card-actions class="q-pt-none full-width">
+          <q-input
+            v-model="email"
+            filled
+            type="email"
+            class="q-pt-none full-width"
+            label="E-mail"
+          />
+          <q-input
+            class="q-pt-none full-width"
+            v-model="password"
+            filled
+            label="Password"
+            :type="isPwd ? 'password' : 'text'"
+          >
+            <template v-slot:append>
+              <q-icon
+                :name="isPwd ? 'visibility_off' : 'visibility'"
+                class="cursor-pointer"
+                @click="isPwd = !isPwd"
+              />
+            </template>
+          </q-input>
+        </q-card-actions>
+        <div class="q-pa-md q-gutter-sm">
+          <q-btn color="primary q-pa-md" style="width: 100%">
+            <div class="ellipsis">Cadastrar</div>
+          </q-btn>
+          <q-btn flat color="primary" class="q-pt-none full-width" label="ESQUECI MINHA SENHA" />
+        </div>
+      </q-card>
     </div>
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-
+import { ref } from "vue";
 export default defineComponent({
   name: "PageIndex",
+  setup() {
+    return {
+      email: ref(""),
+      password: ref(""),
+      isPwd: ref(true),
+    };
+  },
 });
 </script>
+
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  max-width: 300px
+</style>
