@@ -37,10 +37,9 @@
 
 <script>
 import EssentialLink from "components/EssentialLink.vue";
-
 const linksList = [
   {
-    icon: "school",
+    icon: "dashboard",
     link: "https://quasar.dev",
   },
   {
@@ -68,7 +67,6 @@ const linksList = [
     link: "https://awesome.quasar.dev",
   },
 ];
-
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
