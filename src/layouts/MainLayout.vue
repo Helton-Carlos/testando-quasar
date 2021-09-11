@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-grey-1">
+    <q-header class="bg-grey-4">
       <q-toolbar class="text-primary">
         <q-toolbar-title class="text-weight-bold"> Aquosa </q-toolbar-title>
         <div class="q-gutter-sm row items-center no-wrap">
@@ -40,9 +40,7 @@
       behavior="desktop"
       show-if-above
     >
-      <q-toolbar>
-        <q-btn flat round dense icon="menu" />
-      </q-toolbar>
+      <q-space />
       <q-item
         v-for="(list, index) in linksList"
         :key="index"
@@ -90,6 +88,10 @@ export default defineComponent({
         {
           icon: "production_quantity_limits",
           rota: "/Estoque",
+        },
+         {
+          icon: "logout",
+          rota: "/login",
         },
       ],
     };

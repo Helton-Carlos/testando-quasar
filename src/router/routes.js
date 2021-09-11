@@ -15,6 +15,34 @@ const routes = [
     ]
   },
   {
+    path: '/grafico',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', name:'grafico', component: () => import('pages/Grafico.vue') }
+    ]
+  },
+  {
+    path: '/projeto',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', name:'projeto', component: () => import('pages/Projeto.vue') }
+    ]
+  },
+  {
+    path: '/cliente',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', name:'cliente', component: () => import('pages/Cliente.vue') }
+    ]
+  },
+  {
+    path: '/estoque',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', name:'estoque', component: () => import('pages/Estoque.vue') }
+    ]
+  },
+  {
     path: '/:catchAll(.*)*',
     component: () => import('pages/Error404.vue')
   }
