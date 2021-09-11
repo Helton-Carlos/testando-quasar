@@ -1,34 +1,60 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-        <q-toolbar-title> DashBoard </q-toolbar-title>
-        <div>
-          <q-avatar size="27px" color="teal" class="espacos">
-            <img src="https://cdn.quasar.dev/img/avatar.png" />
-          </q-avatar>
+    <q-header class="bg-grey-1">
+      <q-toolbar class="text-primary">
+        <q-toolbar-title class="text-weight-bold"> Aquosa </q-toolbar-title>
+        <div class="q-gutter-sm row items-center no-wrap">
+          <q-btn round dense flat color="grey-8" icon="notifications">
+            <q-badge color="blue" text-color="white" floating>
+              {{ result }}
+            </q-badge>
+            <q-tooltip>Notificação</q-tooltip>
+          </q-btn>
+          <q-btn round dense flat color="text-grey-7" icon="apps">
+            <q-tooltip>Apps</q-tooltip>
+          </q-btn>
+          <q-btn round flat no-wrap>
+            <q-avatar size="26px">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            </q-avatar>
+            <q-tooltip>Colaborador</q-tooltip>
+            <q-menu auto-close>
+              <q-list dense>
+                <q-item clickable class="GL__menu-link">
+                  <q-item-section>Meu perfil</q-item-section>
+                </q-item>
+                <q-item clickable class="GL__menu-link">
+                  <q-item-section>Sair</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
         </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered :width="60">
-      <q-list>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+    <q-drawer
+      class="bg-primary text-white no-scroll"
+      :width="58"
+      :breakpoint="500"
+      behavior="desktop"
+      show-if-above
+    >
+      <q-toolbar>
+        <q-btn flat round dense icon="menu" />
+      </q-toolbar>
+      <q-item
+        v-for="(list, index) in linksList"
+        :key="index"
+        :to="list.rota"
+        active-class="bg-active"
+        exact
+      >
+        <q-item-section avatar>
+          <q-icon :name="list.icon" />
+        </q-item-section>
+      </q-item>
     </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -36,56 +62,38 @@
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink.vue";
-const linksList = [
-  {
-    icon: "dashboard",
-    link: "https://quasar.dev",
-  },
-  {
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "MainLayout",
-
-  components: {
-    EssentialLink,
-  },
-
   setup() {
-    const leftDrawerOpen = ref(false);
-
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+      result: 4,
+      Ocorrencia: 250,
+      linksList: [
+        {
+          icon: "dashboard",
+          rota: "/",
+        },
+        {
+          icon: "trending_up",
+          rota: "/graficos",
+        },
+        {
+          icon: "assignment",
+          rota: "/Projeto",
+        },
+        {
+          icon: "supervisor_account",
+          rota: "/Cliente",
+        },
+        {
+          icon: "production_quantity_limits",
+          rota: "/Estoque",
+        },
+      ],
     };
   },
 });
 </script>
+<style></style>
