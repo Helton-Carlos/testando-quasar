@@ -6,12 +6,11 @@
           v-model="email"
           filled
           type="email"
-          class="q-pt-xs full-width"
+          class="q-pt-sm full-width"
           label="E-mail"
+          :rules="[(val) => !!val || 'Preencha seu Email', isValidEmail]"
         />
-      </q-card-actions>
-      <div class="q-pa-md q-gutter-sm">
-        <q-btn color="primary q-pa-md" style="width: 100%">
+        <q-btn color="accent q-pa-md" style="width: 100%">
           <div class="ellipsis">Enviar</div>
         </q-btn>
         <q-btn
@@ -21,7 +20,7 @@
           label="voltar"
           @click="$router.push({ name: 'Login' })"
         />
-      </div>
+      </q-card-actions>
     </q-card>
   </q-page>
 </template>
@@ -35,6 +34,13 @@ export default defineComponent({
     return {
       email: ref(""),
     };
+  },
+  methods: {
+    isValidEmail(val) {
+      const emailPattern =
+        /^(?=[a-zA-Z0-9@._%+-]{6,254}$)[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/;
+      return emailPattern.test(val) || "Preencha seu Email";
+    },
   },
 });
 </script>

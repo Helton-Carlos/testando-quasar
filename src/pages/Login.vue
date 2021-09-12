@@ -16,6 +16,7 @@
             type="email"
             class="q-pt-sm full-width"
             label="E-mail"
+            :rules="[(val) => !!val || 'Preencha seu Email', isValidEmail]"
           />
           <q-input
             class="q-pt-sm full-width"
@@ -23,6 +24,7 @@
             filled
             label="Password"
             :type="isPwd ? 'password' : 'text'"
+            :rules="[(val) => (val && val.length > 0) || 'Preencha sua senha']"
           >
             <template v-slot:append>
               <q-icon
@@ -32,23 +34,21 @@
               />
             </template>
           </q-input>
-        </q-card-actions>
-        <div class="q-pa-md q-gutter-sm">
           <q-btn
-            color="primary q-pa-md"
-            style="width: 100%"
-            @click="$router.push({ name: 'Index' })"
+            color="accent q-pa-md"
+            class="full-width"
+            @click="validarClick"
           >
-            <div class="ellipsis">Cadastrar</div>
+            <div class="ellipsis">Logar</div>
           </q-btn>
           <q-btn
             flat
             color="primary"
-            class="q-pt-none full-width"
+            class="full-width"
             label="ESQUECI MINHA SENHA"
             @click="$router.push({ name: 'RecuperarLogin' })"
           />
-        </div>
+        </q-card-actions>
       </q-card>
     </div>
   </q-page>
@@ -57,6 +57,7 @@
 <script>
 import { defineComponent } from "vue";
 import { ref } from "vue";
+
 export default defineComponent({
   name: "PageIndex",
   setup() {
@@ -64,7 +65,22 @@ export default defineComponent({
       email: ref(""),
       password: ref(""),
       isPwd: ref(true),
+      erro: true,
     };
+  },
+  methods: {
+    isValidEmail(val) {
+      const emailPattern =
+        /^(?=[a-zA-Z0-9@._%+-]{6,254}$)[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/;
+      return emailPattern.test(val) || "Preencha seu Email";
+    },
+    validarClick() {
+      if (this.email.trim() === "" && this.trim() === "") {
+        return false
+      }else{
+        this.$router.push({ name: "Index" });
+      }
+    },
   },
 });
 </script>

@@ -5,7 +5,7 @@
         <q-toolbar-title class="text-weight-bold"> Aquosa </q-toolbar-title>
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round dense flat color="grey-8" icon="notifications">
-            <q-badge color="blue" text-color="white" floating>
+            <q-badge color="accent" text-color="white" floating>
               {{ result }}
             </q-badge>
             <q-tooltip>Notificação</q-tooltip>
@@ -75,19 +75,19 @@ export default defineComponent({
         },
         {
           icon: "trending_up",
-          rota: "/graficos",
+          rota: "/grafico",
         },
         {
           icon: "assignment",
-          rota: "/Projeto",
+          rota: "/projeto",
         },
         {
           icon: "supervisor_account",
-          rota: "/Cliente",
+          rota: "/cliente",
         },
         {
           icon: "production_quantity_limits",
-          rota: "/Estoque",
+          rota: "/estoque",
         },
          {
           icon: "logout",
