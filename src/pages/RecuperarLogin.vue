@@ -29,7 +29,7 @@
 import { defineComponent } from "vue";
 import { ref } from "vue";
 export default defineComponent({
-  name: "PageIndex",
+  name: "RecuperarLogin",
   setup() {
     return {
       email: ref(""),

@@ -59,7 +59,7 @@ import { defineComponent } from "vue";
 import { ref } from "vue";
 
 export default defineComponent({
-  name: "PageIndex",
+  name: "Login",
   setup() {
     return {
       email: ref(""),
