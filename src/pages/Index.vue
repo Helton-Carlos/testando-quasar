@@ -8,7 +8,7 @@
           :columns="columns"
           row-key="name"
         />
-        <q-card class="my-card q-ml-md q-mt-md">
+        <q-card class="my-card q-mt-md">
           <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
 
           <q-card-section>
