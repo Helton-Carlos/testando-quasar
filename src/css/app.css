@@ -1,3 +1,11 @@
 /* app global css */
-.bg-active{background-color:#b400fb;}
-.secundaria{color:#b400fb}
+.bg-active {
+  background-color: #b400fb;
+}
+.secundaria {
+  color: #b400fb;
+}
+h4 {
+  padding: 5px;
+  margin: 5px 0;
+}

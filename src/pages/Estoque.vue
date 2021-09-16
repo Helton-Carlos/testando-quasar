@@ -1,9 +1,7 @@
 <template>
-  <div>grafico</div>
+  <div>Estoque</div>
 </template>
 
 <script>
 export default {};
 </script>
-
-<style lang="scss" scoped></style>

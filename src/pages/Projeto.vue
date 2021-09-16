@@ -1,13 +1,32 @@
 <template>
   <div class="row">
-    <div class="col-3 q-ml-md">
-      <h4>Produto</h4>
+    <div class="col-6 q-ml-md q-mt-md">
+      <h4>Produtos Limpeza</h4>
       <q-table
         title="Produtos"
         :rows="rows"
         :columns="columns"
         row-key="name"
       />
+    </div>
+
+    <div class="col-3 q-ml-md">
+      <h4>Cadastro de produto</h4>
+      <div class="q-pa-md">
+        <label>Nome do produto</label>
+        <q-input
+          standout="bg-primary text-white"
+          v-model="text"
+          :dense="dense"
+        />
+        <label>Quantidade</label>
+        <q-input
+          v-model.number="model"
+          type="number"
+          standout="bg-primary text-white"
+        />
+        <q-btn class="q-mt-md" color="primary" label="Salvar" />
+      </div>
     </div>
   </div>
 </template>
@@ -18,7 +37,7 @@ const columns = [
   {
     name: "name",
     required: true,
-    label: "Clientes",
+    label: "Produtos",
     align: "left",
     field: (row) => row.name,
     format: (val) => `${val}`,
@@ -29,32 +48,20 @@ const columns = [
 
 const rows = [
   {
-    name: "Lona",
-    Estoque: "11:20",
+    name: "Sabadão em pó",
+    Estoque: 10,
   },
   {
-    name: "Lona",
-    Estoque: "07:20",
+    name: "Sabão em barra",
+    Estoque: 22,
   },
   {
-    name: "Lona",
-    Estoque: "17:20",
+    name: "Água sanitária",
+    Estoque: 9,
   },
   {
-    name: "Lona",
-    Estoque: "10:12",
-  },
-  {
-    name: "Lona",
-    Estoque: "09:12",
-  },
-  {
-    name: "Lona",
-    Estoque: "10:42",
-  },
-  {
-    name: "Lona",
-    Estoque: "10:42",
+    name: "Amaciante",
+    Estoque: 1,
   },
 ];
 
@@ -64,14 +71,11 @@ export default {
       columns,
       rows,
       stars: ref(4),
+      model: ref(10),
+      text: ref(""),
+      ph: ref(""),
+      dense: ref(false),
     };
   },
 };
 </script>
-
-<style scoped>
-h4 {
-  padding: 5px;
-  margin: 5px 0;
-}
-</style>
