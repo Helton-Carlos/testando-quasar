@@ -4,9 +4,9 @@
       <h4>Produtos Limpeza</h4>
       <q-table
         title="Produtos"
-        :rows="rows"
+        :rows="arrayproduto"
         :columns="columns"
-        row-key="name"
+        row-key="produto"
       />
     </div>
 
@@ -16,16 +16,21 @@
         <label>Nome do produto</label>
         <q-input
           standout="bg-primary text-white"
-          v-model="text"
+          v-model="produto"
           :dense="dense"
         />
         <label>Quantidade</label>
         <q-input
-          v-model.number="model"
+          v-model.number="quantidade"
           type="number"
           standout="bg-primary text-white"
         />
-        <q-btn class="q-mt-md" color="primary" label="Salvar" />
+        <q-btn
+          class="q-mt-md"
+          color="primary"
+          label="Salvar"
+          @click="onPush()"
+        />
       </div>
     </div>
   </div>
@@ -35,47 +40,36 @@
 import { ref } from "vue";
 const columns = [
   {
-    name: "name",
+    name: "produto",
     required: true,
     label: "Produtos",
     align: "left",
-    field: (row) => row.name,
+    field: (row) => row.produto,
     format: (val) => `${val}`,
     sortable: true,
   },
-  { name: "Estoque", align: "center", label: "Estoque", field: "Estoque" },
-];
-
-const rows = [
-  {
-    name: "Sabadão em pó",
-    Estoque: 10,
-  },
-  {
-    name: "Sabão em barra",
-    Estoque: 22,
-  },
-  {
-    name: "Água sanitária",
-    Estoque: 9,
-  },
-  {
-    name: "Amaciante",
-    Estoque: 1,
-  },
+  { name: "quantidade", align: "center", label: "Quantidade", field: "quantidade" },
 ];
 
 export default {
   setup() {
     return {
       columns,
-      rows,
+      arrayproduto: ref([]),
       stars: ref(4),
-      model: ref(10),
-      text: ref(""),
+      quantidade: ref(1),
+      produto: ref(""),
       ph: ref(""),
       dense: ref(false),
     };
+  },
+  methods: {
+    onPush() {
+      this.arrayproduto.push({
+        produto: this.produto,
+        quantidade: this.quantidade,
+      });
+    },
   },
 };
 </script>

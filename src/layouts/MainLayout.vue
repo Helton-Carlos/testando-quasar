@@ -23,7 +23,7 @@
                 <q-item clickable class="GL__menu-link">
                   <q-item-section>Meu perfil</q-item-section>
                 </q-item>
-                <q-item clickable class="GL__menu-link">
+                <q-item clickable class="GL__menu-link" @click.prevent="$router.push('/login')">
                   <q-item-section>Sair</q-item-section>
                 </q-item>
               </q-list>
