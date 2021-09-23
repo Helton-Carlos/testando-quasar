@@ -22,17 +22,17 @@ const routes = [
     ]
   },
   {
-    path: '/projeto',
+    path: '/CadastroProduto',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', name:'projeto', component: () => import('pages/Projeto.vue') }
+      { path: '', name:'CadastroProduto', component: () => import('src/pages/CadastroProduto.vue') }
     ]
   },
   {
-    path: '/cliente',
+    path: '/CadastroCliente',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', name:'cliente', component: () => import('pages/Cliente.vue') }
+      { path: '', name:'CadastroCliente', component: () => import('src/pages/CadastroCliente.vue') }
     ]
   },
   {

@@ -79,11 +79,11 @@ export default defineComponent({
         },
         {
           icon: "assignment",
-          rota: "/projeto",
+          rota: "/CadastroProduto",
         },
         {
           icon: "supervisor_account",
-          rota: "/cliente",
+          rota: "/CadastroCliente",
         },
         {
           icon: "production_quantity_limits",
