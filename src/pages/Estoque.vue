@@ -13,7 +13,7 @@
         <tr>
           <th class="text-left">Produtos gerais</th>
           <th class="text-right">Entrada</th>
-          <th class="text-right">Saida</th>
+          <th class="text-right">Saída</th>
           <th class="text-right">Total Atual</th>
         </tr>
       </thead>

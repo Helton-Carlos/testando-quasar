@@ -21,7 +21,7 @@
             <q-menu auto-close>
               <q-list dense>
                 <q-item clickable class="GL__menu-link">
-                  <q-item-section>Meu perfil</q-item-section>
+                  <q-item-section @click.prevent="meuPerfil()">Meu perfil</q-item-section>
                 </q-item>
                 <q-item clickable class="GL__menu-link" @click.prevent="$router.push('/login')">
                   <q-item-section>Sair</q-item-section>
@@ -61,6 +61,7 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: "MainLayout",
@@ -96,6 +97,15 @@ export default defineComponent({
       ],
     };
   },
+  methods:{
+    meuPerfil(){
+
+    }
+  }
 });
 </script>
-<style></style>
+<style>
+.backgroundDark{
+  background-color: rgba(0, 0,0, 0.5) ;
+}
+</style>
